@@ -1,35 +1,33 @@
+<% if @post.errors.any? %>
+<div class="alert alert-danger">
+  <h5><%= t('common.errors') %></h5>
+  <ul>
+    <% @post.errors.full_messages.each do |message|%>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= form_for(post) do |f| %>
-  <!--<% if post.errors.any? %>-->
-    <!--<div id="error_explanation">-->
-      <!--<h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>-->
 
-      <!--<ul>-->
-      <!--<% post.errors.full_messages.each do |message| %>-->
-        <!--<li><%= message %></li>-->
-      <!--<% end %>-->
-      <!--</ul>-->
-    <!--</div>-->
-  <!--<% end %>-->
-
-  <!--<div class="actions">-->
-    <!--<%= f.submit %>-->
-  <!--</div>-->
-    <div class="form-control">
+    <div class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
 
-    <div class="form-control">
+    <div class="form-group">
       <%= f.label :summary %>
-      <%= f.text_area :summary %>
+      <%= f.text_area :summary, class: 'form-control' %>
     </div>
 
-    <div class="form-control">
+    <div class="form-group">
       <%= f.label :body %>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, class: 'form-control' %>
     </div>
 
-    <div class="form-control">
-      <%= f.submit 'Зберегти' %>
+    <div class="form-group">
+      <%= f.submit 'Зберегти', class: 'btn btn-primary' %>
+      <%=	 link_to 'Назад', :back, class:'btn btn-outline-secondary' %>
     </div>
 <% end %>

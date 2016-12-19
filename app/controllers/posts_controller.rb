@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-  #  @posts = Post.all
+  @posts = Post.all
   end
 
   # GET /posts/1
@@ -26,8 +26,11 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    if @post = Post.new
-      redirect_to @post
+    if @post.save
+      redirect_to @post, success: 'Стаття вдало створена'
+    else
+      flash.now[:danger] = 'Стаття не створена'
+      render :new
     end
   end
 
@@ -35,9 +38,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     if @post.update_attributes(post_params)
-      redirect_to @post
+      redirect_to @post, success: 'Стаття вдало обновлена'
     else
-      render edit
+      flash.now[:danger] = 'Стаття не обновлена'
+      render :edit
     end
   end
 
@@ -45,8 +49,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    redirect_to posts_path
-
+    redirect_to posts_path, success: 'Стаття вдало видалена'
   end
 
   private
