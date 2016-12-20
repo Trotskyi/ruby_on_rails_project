@@ -33,6 +33,9 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem "mini_magick"
+gem 'trix'
 
 group :production do
 	gem 'pg'
