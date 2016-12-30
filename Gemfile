@@ -36,6 +36,8 @@ end
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem "mini_magick"
 gem 'trix'
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
 
 group :production do
 	gem 'pg'

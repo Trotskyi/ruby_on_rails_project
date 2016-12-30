@@ -1,7 +1,13 @@
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+
   validates :title, :summary, :body, presence: true
+
+
 
   def all_tags
     self.tags.map(&:name).join(', ')
@@ -13,3 +19,4 @@ class Post < ApplicationRecord
     end
   end
 end
+

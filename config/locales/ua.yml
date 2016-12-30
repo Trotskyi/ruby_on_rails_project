@@ -3,8 +3,8 @@ ru:
     errors: 'При заповненні форми виникли помилки'
     back: 'Назад'
   will_paginate:
-    previous_label: '&larr; Туди'
-    next_label: 'Сюди &rarr;'
+    previous_label: '&larr; Вперед'
+    next_label: 'Назад &rarr;'
   posts:
     index:
       title: 'Статті'
